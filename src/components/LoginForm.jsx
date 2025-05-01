@@ -1,0 +1,63 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import InputField from './InputField';
+import CheckBox from './CheckBox';
+import Button from './Button';
+import './LoginForm.css';
+import { login } from '../api/users'; // axios 요청 함수
+
+function LoginForm() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleLogin = async () => {
+    try {
+      const res = await login(username, password);
+      localStorage.setItem('access_token', res.access);
+      localStorage.setItem('refresh_token', res.refresh);
+      alert('로그인 성공!');
+      navigate('/');  // 로그인 후 이동할 페이지
+    } catch (err) {
+      alert('로그인 실패! 아이디나 비밀번호를 확인해주세요.');
+      console.error(err);
+    }
+  };
+
+  return (
+    <div className="login-form">
+      <h2>로그인</h2>
+
+      <div className="form-group">
+        <label>아이디</label>
+        <InputField
+          placeholder="아이디를 입력해주세요."
+          value={username}
+          onChange={e => setUsername(e.target.value)}
+        />
+      </div>
+
+      <div className="form-group">
+        <label>비밀번호</label>
+        <InputField
+          type="password"
+          placeholder="비밀번호를 입력해주세요."
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+        />
+      </div>
+
+      <div className="form-bottom">
+        <CheckBox label="기억하기" />
+        <a href="#" className="forgot-link">비밀번호를 잊으셨나요?</a>
+      </div>
+
+      <Button text="로그인하기" onClick={handleLogin} />
+
+      <hr />
+      <a href="/signup" className="join-link">회원가입하기</a>
+    </div>
+  );
+}
+
+export default LoginForm;

@@ -1,0 +1,19 @@
+/* index.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f5f7;  /* 흰 배경 */
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
