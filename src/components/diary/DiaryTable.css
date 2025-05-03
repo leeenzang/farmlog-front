@@ -1,0 +1,21 @@
+/* DiaryTable.css */
+.diary-table-wrap {
+    margin-top: 20px;
+  }
+  
+  .diary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+  }
+  
+  .diary-table th,
+  .diary-table td {
+    border: 1px solid #e0e0e0;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .diary-table th {
+    background-color: #f7f7f7;
+  }

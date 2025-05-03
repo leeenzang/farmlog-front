@@ -1,0 +1,11 @@
+.main-layout {
+    display: flex;
+  }
+  
+  .main-content {
+    margin-left: 200px;
+    padding: 2rem;
+    width: calc(100% - 200px);
+    min-height: 100vh;
+    background-color: #f9fafb;
+  }

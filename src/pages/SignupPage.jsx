@@ -1,12 +1,12 @@
 // pages/SignupPage.jsx
+import AuthLayout from '../layouts/AuthLayout';
 import SignupForm from '../components/SignupForm';
-import './SignupPage.css';
 
 function SignupPage() {
     return (
-        <div className="signup-page">
-        <SignupForm />
-        </div>
+        <AuthLayout>
+            <SignupForm />
+        </AuthLayout>
     );
 }
 

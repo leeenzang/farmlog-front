@@ -1,0 +1,15 @@
+/* AuthLayout.css */
+
+.auth-layout {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;  /* 배경 회색 */
+  }
+  
+  .auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
