@@ -1,39 +1,15 @@
-// 탭 버튼, 입력필드 컴포넌트
-
+// src/features/diary/components/DiaryFilterTabs.jsx
 import './DiaryFilterTabs.css';
 
 function DiaryFilterTabs({
   activeTab,
-  onTabChange,
   dateRange,
   setDateRange,
   keyword,
   setKeyword,
 }) {
   return (
-    <div className="diary-tabs">
-      {/* 탭 버튼 */}
-      <div className="tab-buttons">
-        <button
-          className={activeTab === 'latest' ? 'active' : ''}
-          onClick={() => onTabChange('latest')}
-        >
-          최신순
-        </button>
-        <button
-          className={activeTab === 'date' ? 'active' : ''}
-          onClick={() => onTabChange('date')}
-        >
-          날짜별
-        </button>
-        <button
-          className={activeTab === 'keyword' ? 'active' : ''}
-          onClick={() => onTabChange('keyword')}
-        >
-          키워드
-        </button>
-      </div>
-
+    <div className="filter-ui">
       {/* 날짜 필터 UI */}
       {activeTab === 'date' && (
         <div className="filter-group">

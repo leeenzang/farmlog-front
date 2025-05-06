@@ -1,10 +1,13 @@
 .login-form {
     background: white;
-    padding: 60px;
+    padding: 30px 70px;
     border-radius: 8px;
-    width: 600px;
-    height: 700px;
+    width: 100%;
+    max-width: 600px;
+    min-width: 500px;
+    min-height: 400px;
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    margin: 0 auto;
 
     display: flex;              /* 💥 핵심 */
     flex-direction: column;     /* 세로로 쌓기 */
@@ -12,25 +15,17 @@
     gap: 20px;                  /* 요소 사이 간격 */                 /* 요소 사이 간격 */;
   }
   
-  h2 {
+  .login-form h2 {
     text-align: center;
-    margin-top: 0px;
-    margin-bottom: 30px;
-    font-weight: bold;
-    font-size: 40px
+    font-size: 40px;
   }
-  
+.form-group label {
+    font-size: 15px;
+}
   .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
-  
-  .input-field {
-    width: 100%;
-    padding: 12px;
-    background: #f2f3f6;
-    border: none;
-    border-radius: 4px;
-  }
+
   
   .checkbox-wrap {
     display: flex;
@@ -50,20 +45,10 @@
     color: #6aa15d;
     text-decoration: none;
   }
-  
-  .login-button {
-    width: 100%;
-    padding: 14px;
-    background-color: #9ccf96;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
+
   .join-link {
     display: block;
-    margin-top: 20px;
+    margin-bottom: 20px;
     text-align: center;
     color: #6aa15d;
     font-size: 14px;
@@ -71,7 +56,15 @@
   }
   
   hr {
-    margin-top: 30px;
-    margin-bottom: 10px;
-    border: 0.5px solid #ddd;
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 100px 0 0 0;
+    width: 100%;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* ← 입력칸 사이 간격 여기서 조절 */
+    margin-bottom: 20px;
   }

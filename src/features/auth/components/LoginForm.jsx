@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import InputField from './InputField';
-import CheckBox from './CheckBox';
-import Button from './Button';
+import InputField from '../../../components/InputField';
+import CheckBox from '../../../components/CheckBox';
+import Button from '../../../components/Button';
 import './LoginForm.css';
-import { login } from '../api/users'; // axios 요청 함수
+import { login } from '../../../api/users'; // axios 요청 함수
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -27,13 +27,15 @@ function LoginForm() {
   return (
     <div className="login-form">
       <h2>로그인</h2>
-
+    
+    <div className="input-group">
       <div className="form-group">
         <label>아이디</label>
         <InputField
           placeholder="아이디를 입력해주세요."
           value={username}
           onChange={e => setUsername(e.target.value)}
+          className="login-input"
         />
       </div>
 
@@ -44,15 +46,16 @@ function LoginForm() {
           placeholder="비밀번호를 입력해주세요."
           value={password}
           onChange={e => setPassword(e.target.value)}
+          className="login-input"
         />
       </div>
-
+    </div>
       <div className="form-bottom">
         <CheckBox label="기억하기" />
         <a href="#" className="forgot-link">비밀번호를 잊으셨나요?</a>
       </div>
 
-      <Button text="로그인하기" onClick={handleLogin} />
+      <Button text="로그인하기" onClick={handleLogin} variant="login-green" />
 
       <hr />
       <a href="/signup" className="join-link">회원가입하기</a>

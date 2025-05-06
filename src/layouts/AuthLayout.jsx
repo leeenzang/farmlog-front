@@ -1,4 +1,5 @@
 // AuthLayout.jsx
+// LoginPage, SignupPage가 쓰는 공통 레이아웃
 import './AuthLayout.css';
 
 function AuthLayout({ children }) {

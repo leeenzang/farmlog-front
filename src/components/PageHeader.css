@@ -1,0 +1,39 @@
+.page-header {
+    margin-bottom: 24px;
+  }
+  
+  .page-title {
+    font-family: 'GowunBatang', serif;
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  
+  /* 탭 버튼 라인 */
+  .page-tabs {
+    display: flex;
+    gap: 24px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0px; /* ✅ 이거 조정 */
+  }
+  
+  .tab-button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    padding: 4px 0 2px; /* ✅ 아래쪽 패딩 줄여서 밑줄 겹치게 */
+    color: #666;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .tab-button:hover {
+    color: #222;
+  }
+  
+  .tab-button.active {
+    color: #000;
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+  }

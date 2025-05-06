@@ -1,0 +1,110 @@
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* ✅ 스타일 타입별 variant */
+  .green {
+    background-color: #9ccf96;
+    color: black;
+    border: none;
+  }
+  
+  .green:hover {
+    background-color: #83ba7f;
+  }
+  
+  .outline {
+    background-color: transparent;
+    border: 1px solid #333;
+    color: #333;
+  }
+  
+  .outline:hover {
+    background-color: #f3f3f3;
+  }
+  
+  .ghost {
+    background-color: transparent;
+    color: gray;
+    border: none;
+  }
+  
+  .ghost:hover {
+    background-color: #eee;
+  }
+  
+  /* 🔧 필요한 경우 이렇게 추가도 가능 */
+  .rounded {
+    border-radius: 100px;
+  }
+  
+  .large {
+    font-size: 18px;
+    padding: 14px 28px;
+  }
+
+
+/* 메인 랜딩 전용 버튼 스타일 */
+.main-green {
+    background-color: #9ccf96;
+    color: black;
+    border: none;
+  }
+  .main-green:hover {
+    background-color: #7aa066; /* 약간 더 어두운 초록 */
+  }
+  .main-outline {
+    background-color: transparent;
+    color: black;
+    border: 1px solid #333;
+  }
+  .main-outline:hover {
+    background-color: #f2f2f2; /* 연한 회색 배경 */
+    color: black;
+  }
+
+/* 로그인/회원가입 버튼 */
+.btn.login-green {
+    background-color: #97C680;
+    color: black;
+    border: none;
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn.login-green:hover {
+    background-color: #7aa066;
+  }
+
+
+/* DiaryTab 버튼용 */
+.btn.tab-button {
+    background: none;
+    border: none;
+    font-size: 15px;
+    padding: 10px 5px;
+    cursor: pointer;
+    color: #666;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .btn.tab-button:hover {
+    color: #222;
+  }
+  
+  .btn.tab-button.active {
+    color: #000;
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+  }

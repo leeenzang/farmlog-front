@@ -1,11 +1,11 @@
 .main-layout {
-    display: flex;
+    display: flex;             /* ❗ 사이드바랑 본문 나란히 */
+    height: 100vh;             /* 전체 높이 맞춰주기 */
   }
   
+  
   .main-content {
-    margin-left: 200px;
-    padding: 2rem;
-    width: calc(100% - 200px);
-    min-height: 100vh;
-    background-color: #f9fafb;
+    flex: 1;                   /* ❗ 나머지 전부 차지하게 하기 */
+    padding: 22px 40px 40px 40px;             /* 안쪽 여백 */
+    background-color: #f4f5f7; /* 배경 깔아서 사이드바와 구분 */
   }

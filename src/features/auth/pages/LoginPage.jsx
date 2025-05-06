@@ -1,5 +1,5 @@
 // ✅ 수정된 LoginPage.jsx
-import AuthLayout from '../layouts/AuthLayout';
+import AuthLayout from '../../../layouts/AuthLayout';
 import LoginForm from '../components/LoginForm';
 
 function LoginPage() {

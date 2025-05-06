@@ -1,0 +1,41 @@
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+  }
+  
+  .input-wrapper label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .input-field {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+  }
+  
+  .input-field:focus {
+    outline: none;
+    border-color: #97C680;
+    box-shadow: 0 0 0 2px rgba(156, 207, 150, 0.2);
+  }
+
+
+/* 로그인/회원가입 */
+.input-field.login-input {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 12px 14px;
+    font-size: 15px;
+    border-radius: 2px;
+}
+
+.input-field.login-input:focus {
+    border-color: #97C680;
+    box-shadow: 0 0 0 2px rgba(156, 207, 150, 0.2);
+}

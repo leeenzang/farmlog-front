@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import InputField from './InputField';
-import Button from './Button';
-import './SignupForm.css';
-import { signup } from '../api/users';
+import InputField from '../../../components/InputField';
+import Button from '../../../components/Button';
+import './LoginForm.css';
+import { signup } from '../../../api/users';
 
 function SignupForm() {
   const [formData, setFormData] = useState({
@@ -39,9 +39,10 @@ function SignupForm() {
   };
 
   return (
-    <div className="signup-form">
+    <div className="login-form">
       <h2>회원가입</h2>
-
+    
+    <div className="form-inputs">
       <div className="form-group">
         <label>아이디</label>
         <InputField
@@ -49,6 +50,7 @@ function SignupForm() {
           placeholder="아이디를 입력해주세요"
           value={formData.username}
           onChange={handleChange}
+          className="login-input"
         />
       </div>
 
@@ -59,6 +61,7 @@ function SignupForm() {
           placeholder="닉네임을 입력해주세요"
           value={formData.nickname}
           onChange={handleChange}
+          className="login-input"
         />
       </div>
 
@@ -70,6 +73,7 @@ function SignupForm() {
           placeholder="비밀번호를 입력해주세요"
           value={formData.password}
           onChange={handleChange}
+          className="login-input"
         />
       </div>
 
@@ -81,14 +85,15 @@ function SignupForm() {
           placeholder="비밀번호를 한 번 더 입력해주세요"
           value={formData.password2}
           onChange={handleChange}
+          className="login-input"
         />
       </div>
+    </div>
 
-      <Button text="회원가입 하기" onClick={handleSignup} />
+      <Button text="회원가입 하기" onClick={handleSignup} variant="login-green"/>
 
       <hr />
-
-      <a href="/login" className="login-link">이미 회원가입을 하셨나요?</a>
+      <a href="/login" className="join-link">이미 회원가입을 하셨나요?</a>
     </div>
   );
 }
