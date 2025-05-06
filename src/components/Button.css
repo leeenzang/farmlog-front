@@ -3,6 +3,7 @@
     padding: 10px 20px;
     border-radius: 6px;
     font-size: 14px;
+    font-family: 'GowunBatang', serif;
     text-decoration: none;
     text-align: center;
     cursor: pointer;
@@ -40,7 +41,6 @@
     background-color: #eee;
   }
   
-  /* 🔧 필요한 경우 이렇게 추가도 가능 */
   .rounded {
     border-radius: 100px;
   }
@@ -108,3 +108,31 @@
     font-weight: bold;
     border-bottom: 2px solid #000;
   }
+
+/* 다이어리 생성 버튼 */
+/* 기본 버튼 스타일 */
+.btn.plain {
+  width: 100%;
+  padding: 10px;
+  border: 0.5px solid #575757;
+  background-color: #fff;
+  color: #000;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* 호버 또는 클릭 시 초록색 전환 */
+.btn.plain:hover,
+.btn.plain:active {
+  background-color: #97C680; /* 초록색 */
+  color: #fff;
+  border-color: #97C680;
+}
+
+.btn.plain.selected {
+  background-color: #97C680;
+  color: white;
+  border-color: #97C680;
+}

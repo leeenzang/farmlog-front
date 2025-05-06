@@ -1,9 +1,9 @@
 // src/components/diary/DiaryForm.jsx
 import { createDiary } from '../../../api/diary';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './DiaryForm.css';
-
+import Button from '../../../components/Button';
 const weatherOptions = [
     '맑음', '비', '흐림', '눈', '바람',
     '서리', '우박', '가뭄', '폭염', '장마'
@@ -15,6 +15,20 @@ function DiaryForm() {
     weather: [],
     content: ''
   });
+  useEffect(() => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const formattedDate = `${yyyy}-${mm}-${dd}`;
+  
+    setFormData(prev => ({
+      ...prev,
+      date: formattedDate
+    }));
+  }, []);
+
+
 
   const handleChange = (e) => {
     setFormData(prev => ({
@@ -40,8 +54,18 @@ function DiaryForm() {
     console.log('제출된 일기:', formData);
   
     try {
-      await createDiary(formData); 
+      await createDiary({
+        ...formData,
+        weather: formData.weather.join(','),
+      });
       alert('작성 완료!');
+  
+      // ✅ 폼 초기화
+      setFormData({
+        date: '',
+        weather: [],
+        content: ''
+      });
     } catch (err) {
       console.error('작성 실패:', err.response?.data || err.message);
       alert('작성 실패!');
@@ -49,40 +73,49 @@ function DiaryForm() {
   };
 
 return (
+  <div className='diary-form-wrapper'>
     <form className="diary-form" onSubmit={handleSubmit}>
-        <label htmlFor="date">날짜</label>
-        <input
-            type="date"
-            name="date"
-            placeholder="날짜"
-            value={formData.date}
-            onChange={handleChange}
-        />
+        <div className="date-section">
+          <label htmlFor="date">날짜</label>
+          <input
+              type="date"
+              name="date"
+              placeholder="날짜"
+              value={formData.date}
+              onChange={handleChange}
+          />
+        </div>
         <div className="weather-section">
             <label>날씨</label>
             <div className="weather-buttons">
             {weatherOptions.map((option) => (
-              <button
-                type="button"
+              <Button
                 key={option}
-                className={formData.weather.includes(option) ? 'selected' : ''}
+                text={option}
+                type="button"
                 onClick={() => handleWeatherSelect(option)}
-              >
-                {option}
-              </button>
+                variant={`plain ${formData.weather.includes(option) ? 'selected' : ''}`}
+              />
             ))}
             </div>
         </div>
-            <label htmlFor="date">내용</label>
-            <textarea
-                name="content"
-                placeholder="내용"
-                value={formData.content}
-                onChange={handleChange}
-            />
-            <button type="submit">저장하기</button>
+        <div className='content-section'>
+          <label htmlFor="date">내용</label>
+          <textarea
+              name="content"
+              placeholder="내용"
+              value={formData.content}
+              onChange={handleChange}
+          />
+        </div>
+          <Button
+            text="저장하기"
+            type="submit"
+            variant="plain" // ✅ 원하는 스타일 클래스 쓰기
+          />
         </form>
-    );
+    </div>
+  );
 }
 
 export default DiaryForm;

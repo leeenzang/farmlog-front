@@ -1,35 +1,33 @@
+
 .diary-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    max-width: 400px;
-    margin: 0 auto;
+    gap: 40px;
+    max-width: 500px;
+    margin: 80px auto 0; /* ✅ 이거만 바꿔 */
+    
   }
   
   .diary-form input,
   .diary-form textarea {
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 0.5px solid #575757;
     border-radius: 4px;
   }
   
   .diary-form textarea {
     height: 200px;
     resize: none;
+    border: 0.5px solid #575757;
+
   }
   
-  .diary-form button {
-    padding: 14px;
-    background-color: #6aa15d;
-    border: none;
-    color: white;
-    font-weight: bold;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+
   
   /* 🧊 날씨 토글 버튼 스타일 */
-  .weather-section {
+  .weather-section,
+  .date-section,
+  .content-section{
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -40,20 +38,4 @@
     grid-template-columns: repeat(5, 1fr);  /* 한 줄에 5개 */
     gap: 6px;
   }
-  
-  .weather-buttons button {
-    padding: 10px 0;
-    border: 1px solid #ccc;
-    background-color: rgb(255, 255, 255);
-    color: rgb(148, 148, 148);
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.2s;
-  }
-  
-  .weather-buttons button.selected {
-    background-color: #6aa15d;
-    color: rgb(0, 0, 0);
-    font-weight: bold;
-  }
+
