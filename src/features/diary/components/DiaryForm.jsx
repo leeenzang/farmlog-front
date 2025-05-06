@@ -12,7 +12,7 @@ const weatherOptions = [
 function DiaryForm() {
   const [formData, setFormData] = useState({
     date: '',
-    weather: '',
+    weather: [],
     content: ''
   });
 
@@ -24,10 +24,15 @@ function DiaryForm() {
   };
 
   const handleWeatherSelect = (weather) => {
-    setFormData(prev => ({
-      ...prev,
-      weather
-    }));
+    setFormData(prev => {
+      const alreadySelected = prev.weather.includes(weather);
+      return {
+        ...prev,
+        weather: alreadySelected
+          ? prev.weather.filter(w => w !== weather) // 선택돼 있으면 제거
+          : [...prev.weather, weather]             // 아니면 추가
+      };
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -57,14 +62,14 @@ return (
             <label>날씨</label>
             <div className="weather-buttons">
             {weatherOptions.map((option) => (
-                <button
+              <button
                 type="button"
                 key={option}
-                className={formData.weather === option ? 'selected' : ''}
+                className={formData.weather.includes(option) ? 'selected' : ''}
                 onClick={() => handleWeatherSelect(option)}
-                >
+              >
                 {option}
-                </button>
+              </button>
             ))}
             </div>
         </div>
