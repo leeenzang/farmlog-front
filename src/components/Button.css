@@ -139,3 +139,20 @@
   color: white;
   border-color: #97C680;
 }
+
+
+
+
+/* export 용 버튼 */
+.btn.export {
+  width: 55%;
+  padding: 10px;
+  border: 0.5px solid #575757;
+  background-color: #fff;
+  color: #000;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 30px;
+}

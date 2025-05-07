@@ -29,7 +29,6 @@ instance.interceptors.response.use(
         // 세션 만료 또는 인증 실패 → 토큰 제거하고 메인페이지로 이동
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
-        window.location.href = '/'; // 메인페이지로 강제 이동
       }
   
       return Promise.reject(error);

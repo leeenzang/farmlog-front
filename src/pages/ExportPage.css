@@ -1,0 +1,52 @@
+.export-content {
+    max-width: 700px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    padding-left: 2rem; 
+}
+
+.export-content p {
+    font-size: 25px;
+    color: #333;
+    margin: 0;
+}
+
+.date-range-wrapper {
+    width: 30%;
+    min-width: 350px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 14px;
+    margin-left: 30px;
+  }
+  
+  .date-range-wrapper input[type="date"] {
+    border: none;
+    padding: 10px 12px;
+    font-family: inherit;
+    background: transparent;
+    color: #333;
+    flex: 1;
+  }
+  
+  .date-range-wrapper input[type="date"]:focus {
+    outline: none;
+  }
+  
+  .date-range-wrapper input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: grayscale(100%);
+    cursor: pointer;
+  }
+  
+  .arrow {
+    background-color: #e3e5e8;
+    padding: 10px 14px;
+    font-size: 16px;
+    color: #666;
+  }

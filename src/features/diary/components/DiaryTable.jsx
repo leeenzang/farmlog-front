@@ -5,7 +5,9 @@ import DiaryModal from './DiaryModal'; // 모달 컴포넌트 가져옴
 
 function DiaryTable({ entries }) {
   const [selectedId, setSelectedId] = useState(null); // 어떤 일기 클릭했는지 기억
-
+  if (!Array.isArray(entries)) {
+    return <p>데이터를 불러오는 중입니다...</p>; // ✅ null 방어
+  }
   return (
     <div className="diary-table-wrap">
       <table className="diary-table">

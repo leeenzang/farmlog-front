@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DiaryFilterTabs from '../components/DiaryFilterTabs';
 import DiaryViewer from '../components/DiaryViewer';
 import PageHeader from '../../../components/PageHeader';
-
+import axios from '../../../api/axios';
+import { useNavigate } from 'react-router-dom';
 function DiaryListPage() {
   const [activeTab, setActiveTab] = useState('latest'); // 'latest' | 'date' | 'keyword'
   const [dateRange, setDateRange] = useState({ start: '', end: '' });
@@ -13,6 +14,22 @@ function DiaryListPage() {
     { label: '키워드', value: 'keyword' }
   ];
 
+  const navigate = useNavigate();
+  useEffect(() => {
+    const fetchEntries = async () => {
+      try {
+        const res = await axios.get('/diary/search/?ordering=-created_at');
+        setEntries(res.data);
+      } catch (err) {
+        if (err.response?.status === 401) {
+          alert('세션이 만료되었습니다. 다시 로그인해주세요.');
+          navigate('/login'); 
+        }
+      }
+    };
+
+    fetchEntries();
+  }, []);
   return (
     <div className="diary-list-page">
       <PageHeader

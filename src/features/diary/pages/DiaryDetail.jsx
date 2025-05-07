@@ -7,6 +7,7 @@ function DiaryDetail() {
   const { id } = useParams();
   const [diary, setDiary] = useState(null);
 
+  
   useEffect(() => {
     const fetchDiary = async () => {
       try {
