@@ -14,6 +14,8 @@
   .modal-content {
     background: #fff;
     border-radius: 10px;
+    min-width: 600px;
+    min-height: 600px;
     width: 700px;
     max-height: 80%;
     overflow-y: auto;
@@ -21,6 +23,8 @@
     padding: 0;
   }
   
+
+
   /* ✅ 상단 날짜 박스 */
   .modal-header {
     background-color: #a9cd95;
@@ -46,6 +50,11 @@
     color: #333;
   }
   
+
+.modal-inner {
+  margin: 15px;
+}
+
   /* ✅ 테이블 */
   .modal-table {
     width: 100%;
@@ -66,27 +75,39 @@
     font-weight: 600;
     color: #555;
     width: 80px;
+    text-align: center;
   }
   
+
+
+
   /* ✅ 내용 */
   .modal-content-body {
+    display: grid;
     padding: 0 16px;
     border-top: none;
+    grid-template-rows: repeat(9, 1fr); /* 최소 5줄 확보 */
     margin-top: 10px;
   }
   
   .modal-content-body p {
     padding: 8px 0;
     border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
     font-size: 15px;
     color: #333;
     margin: 0;
   }
   
+
+
+
   /* ✅ 버튼 */
   .modal-buttons {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;          
     display: flex;
-    justify-content: flex-end;
     gap: 10px;
     padding: 20px 16px;
   }

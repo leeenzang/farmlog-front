@@ -35,26 +35,26 @@
 
 
 
-  .date-range-wrapper {
-    width: 30%;
-    min-width: 300px;
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    font-size: 14px;
-  }
-  
-  .date-range-wrapper input[type="date"] {
-    border: none;
-    padding: 10px 12px;
-    font-family: inherit;
-    background: transparent;
-    color: #333;
-    flex: 1;
-  }
-  
+.date-range-wrapper {
+  width: 30%;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.date-range-wrapper input[type="date"] {
+  border: none;
+  padding: 10px 12px;
+  font-family: inherit;
+  background: transparent;
+  color: #333;
+  flex: 1;
+}
+
   .date-range-wrapper input[type="date"]:focus {
     outline: none;
   }

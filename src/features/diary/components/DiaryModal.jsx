@@ -5,7 +5,7 @@ import {
   fetchDiaryDetail,
   updateDiary,
   deleteDiary
-} from '../../../api/diary'; // ✅ axios 대신 이거 쓰자
+} from '../../../api/diary'; 
 
 function DiaryModal({ id, onClose }) {
   const [diary, setDiary] = useState(null);
@@ -13,7 +13,7 @@ function DiaryModal({ id, onClose }) {
   useEffect(() => {
     const getDiary = async () => {
       try {
-        const data = await fetchDiaryDetail(id); // ✅ API 호출 분리
+        const data = await fetchDiaryDetail(id); 
         setDiary(data);
       } catch (err) {
         console.error('❌ 일기 불러오기 실패:', err);
@@ -41,7 +41,7 @@ function DiaryModal({ id, onClose }) {
     if (!window.confirm('정말 삭제할까요?')) return;
 
     try {
-      await deleteDiary(id); // ✅ axios → 함수로 변경
+      await deleteDiary(id);
       alert('삭제 완료!');
       onClose();
       window.location.reload();
@@ -60,36 +60,42 @@ function DiaryModal({ id, onClose }) {
           <h3>{new Date(diary.date).toLocaleDateString()} 일기입니다.</h3>
           <button className="modal-close" onClick={onClose}>✕</button>
         </div>
-        <table className="modal-table">
-          <tbody>
-            <tr>
-              <th>양력</th>
-              <td>{diary.date}</td>
-              <th>음력</th>
-              <td>{diary.lunar_date}</td>
-            </tr>
-            <tr>
-              <th>날씨</th>
-              <td colSpan="3">{diary.weather}</td>
-            </tr>
-          </tbody>
-        </table>
-        <div className="modal-content-body">
-          {diary.content.split('\n').map((line, i) => (
-            <p key={i}>{line}</p>
-          ))}
-        </div>
-        <div className="modal-buttons">
-          <Button
-            text="수정하기"
-            onClick={handleEdit}
-            variant="outline"
-          />
-          <Button
-            text="삭제하기"
-            onClick={handleDelete}
-            variant="ghost"
-          />
+
+        <div className='modal-inner'>
+          <table className="modal-table">
+            <tbody>
+              <tr>
+                <th>양력</th>
+                <td>{diary.date}</td>
+                <th>음력</th>
+                <td>{diary.lunar_date}</td>
+              </tr>
+              <tr>
+                <th>날씨</th>
+                <td colSpan="3">{diary.weather}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div className="modal-content-body">
+            {[
+              ...diary.content.split('\n'),
+              ...Array(9 - diary.content.split('\n').length).fill('')  // 빈 줄로 채우기
+            ].slice(0, 9).map((line, i) => (
+              <p key={i}>{line || '\u00A0'}</p>  // 공백 문자로 줄 유지
+            ))}
+          </div>
+          <div className="modal-buttons">
+            <Button
+              text="수정하기"
+              onClick={handleEdit}
+              variant="outline"
+            />
+            <Button
+              text="삭제하기"
+              onClick={handleDelete}
+              variant="ghost"
+            />
+          </div>
         </div>
       </div>
     </div>
