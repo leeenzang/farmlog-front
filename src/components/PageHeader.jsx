@@ -1,4 +1,4 @@
-// src/components/common/PageHeader.jsx
+// src/components/PageHeader.jsx
 import './PageHeader.css';
 
 function PageHeader({ title, tabs, activeTab, onTabChange }) {

@@ -12,7 +12,6 @@ function DiaryTable({ entries }) {
         <thead>
           <tr>
             <th>글 제목</th>
-            <th>날짜</th>
           </tr>
         </thead>
         <tbody>
@@ -26,7 +25,6 @@ function DiaryTable({ entries }) {
                 <td>
                   {`${new Date(entry.date).getFullYear()}년 ${new Date(entry.date).getMonth() + 1}월 ${new Date(entry.date).getDate()}일의 일기`}
                 </td>
-                <td>{entry.date}</td>
               </tr>
             ))
           )}

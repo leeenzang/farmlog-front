@@ -1,7 +1,6 @@
 // DashboardPage.jsx
 import MainLayout from '../layouts/MainLayout';
-import PageHeader
- from '../components/PageHeader';
+import PageHeader from '../components/PageHeader';
 function DashboardPage() {
     return (
         <PageHeader

@@ -107,6 +107,7 @@
     color: #000;
     font-weight: bold;
     border-bottom: 2px solid #000;
+    font-family: 'GowunBatang', serif;
   }
 
 /* 다이어리 생성 버튼 */
@@ -129,6 +130,8 @@
   background-color: #97C680; /* 초록색 */
   color: #fff;
   border-color: #97C680;
+  font-family: 'GowunBatang', serif;
+
 }
 
 .btn.plain.selected {

@@ -21,5 +21,19 @@ instance.interceptors.request.use(
     },
     error => Promise.reject(error)
 );
+// 세션 만료되면
+instance.interceptors.response.use(
+    response => response,
+    error => {
+      if (error.response?.status === 401) {
+        // 세션 만료 또는 인증 실패 → 토큰 제거하고 메인페이지로 이동
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('refresh_token');
+        window.location.href = '/'; // 메인페이지로 강제 이동
+      }
+  
+      return Promise.reject(error);
+    }
+  );
 
 export default instance;

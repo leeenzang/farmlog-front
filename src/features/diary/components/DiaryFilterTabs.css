@@ -29,3 +29,78 @@
     gap: 10px;
     align-items: center;
   }
+
+
+
+
+
+
+  .date-range-wrapper {
+    width: 30%;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 14px;
+  }
+  
+  .date-range-wrapper input[type="date"] {
+    border: none;
+    padding: 10px 12px;
+    font-family: inherit;
+    background: transparent;
+    color: #333;
+    flex: 1;
+  }
+  
+  .date-range-wrapper input[type="date"]:focus {
+    outline: none;
+  }
+  
+  .date-range-wrapper input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: grayscale(100%);
+    cursor: pointer;
+  }
+  
+  .arrow {
+    background-color: #e3e5e8;
+    padding: 10px 14px;
+    font-size: 16px;
+    color: #666;
+  }
+
+
+
+
+  .keyword-filter-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 8px 12px;
+    width: 300px;
+  }
+  
+  .keyword-filter-form input {
+    flex: 1;
+    border: none;
+    font-size: 14px;
+    outline: none;
+    background: transparent;
+  }
+  
+  .keyword-filter-form .search-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px;
+    color: #333;
+  }
+  
+  .keyword-filter-form .search-button:hover {
+    color: #6aa15d;
+  }
