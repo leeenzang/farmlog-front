@@ -9,6 +9,8 @@ import {
 
 function DiaryModal({ id, onClose }) {
   const [diary, setDiary] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedContent, setEditedContent] = useState('');
 
   useEffect(() => {
     const getDiary = async () => {
@@ -22,19 +24,26 @@ function DiaryModal({ id, onClose }) {
     getDiary();
   }, [id]);
 
-  const handleEdit = async () => {
-    const newContent = prompt('새로운 내용을 입력하세요:', diary.content);
-    if (!newContent || newContent === diary.content) return;
+  const handleEditClick = () => {
+    setEditedContent(diary.content); // 기존 내용 세팅
+    setIsEditing(true);              // 수정모드 ON
+  };
 
+  const handleEditSubmit = async () => {
     try {
-      await updateDiary(id, { content: newContent }); // ✅ axios → 함수로 변경
+      await updateDiary(id, { content: editedContent });
       alert('수정 완료!');
+      setIsEditing(false);
       onClose();
       window.location.reload();
     } catch (err) {
       console.error('❌ 수정 실패:', err);
       alert('수정 실패함...');
     }
+  };
+
+  const handleEditCancel = () => {
+    setIsEditing(false);
   };
 
   const handleDelete = async () => {
@@ -76,25 +85,34 @@ function DiaryModal({ id, onClose }) {
               </tr>
             </tbody>
           </table>
+
           <div className="modal-content-body">
-            {[
-              ...diary.content.split('\n'),
-              ...Array(9 - diary.content.split('\n').length).fill('')  // 빈 줄로 채우기
-            ].slice(0, 9).map((line, i) => (
-              <p key={i}>{line || '\u00A0'}</p>  // 공백 문자로 줄 유지
-            ))}
+            {isEditing ? (
+              <textarea
+                className="edit-textarea"
+                value={editedContent}
+                onChange={(e) => setEditedContent(e.target.value)}
+                rows={9}
+              />
+            ) : (
+              [...diary.content.split('\n'), ...Array(9 - diary.content.split('\n').length).fill('')]
+                .slice(0, 9)
+                .map((line, i) => <p key={i}>{line || '\u00A0'}</p>)
+            )}
           </div>
+
           <div className="modal-buttons">
-            <Button
-              text="수정하기"
-              onClick={handleEdit}
-              variant="outline"
-            />
-            <Button
-              text="삭제하기"
-              onClick={handleDelete}
-              variant="ghost"
-            />
+            {isEditing ? (
+              <>
+                <Button text="취소" onClick={handleEditCancel} variant="ghost" />
+                <Button text="저장" onClick={handleEditSubmit} variant="outline" />
+              </>
+            ) : (
+              <>
+                <Button text="수정하기" onClick={handleEditClick} variant="outline" />
+                <Button text="삭제하기" onClick={handleDelete} variant="ghost" />
+              </>
+            )}
           </div>
         </div>
       </div>
