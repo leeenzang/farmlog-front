@@ -1,0 +1,154 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dashboard-top,
+.dashboard-middle {
+  display: flex;
+  gap: 1rem;
+}
+
+.dashboard-bottom {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.dummy-box {
+  background: #f4f4f4;
+  border: 1px dashed #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  min-height: 120px;
+  flex: 1;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+
+
+/* 날씨 이미지 */
+.weather-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 1.2rem;
+  width: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.weather-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #5C8A41;
+  margin: 0;
+}
+
+.weather-date {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.weather-content {
+  margin-top: 0.5rem;
+}
+
+
+
+/* 오늘 날씨 카드 */
+.weather-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.weather-meta .label {
+  color: #888;
+  font-size: 0.75rem;
+}
+
+.weather-meta .value {
+  border: 1px solid #ddd;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+
+/* 달력 */
+.calendar-wrapper {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 1rem;
+  width: 240px;
+  height: fit-content;
+}
+
+
+/* 예전 다이어리 */
+.old-diary-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  padding: 1rem;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.old-diary-card h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #5C8A41;
+}
+
+.old-diary-date {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.old-diary-content {
+  font-size: 0.85rem;
+  color: #333;
+}
+
+
+/* 링크카드 */
+.link-card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 1rem;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.link-card:hover {
+  background: #e8f5e9;
+  transform: translateY(-2px);
+}
+
+.link-card-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.link-card-url {
+  font-size: 0.8rem;
+  color: #888;
+}

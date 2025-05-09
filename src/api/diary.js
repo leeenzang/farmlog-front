@@ -25,6 +25,12 @@ export const fetchDiaryDetail = async (id) => {
     const res = await axios.get(`/diary/search/${id}/`);
     return res.data;
   };
+
+// 일기 하루 조회
+export const fetchDiaryByDate = async (dateStr) => {
+  const res = await axios.get(`/diary/search/?search_date=${dateStr}`);
+  return res.data;
+};
   
   // 일기 수정 (PATCH)
   export const updateDiary = async (id, updatedData) => {

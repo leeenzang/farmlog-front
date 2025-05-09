@@ -78,7 +78,7 @@ function ExportPage() {
       />
       <div className='export-content'>
         <p>📆  원하는 기간을 입력해주세요!</p>
-        <div className="date-range-wrapper">
+        <div className="date-wrapper">
           <input
             type="date"
             value={startDate}

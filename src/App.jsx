@@ -3,7 +3,7 @@ import LoginPage from './features/auth/pages/LoginPage';
 import SignupPage from './features/auth/pages/SignupPage';
 import MainPage from './pages/MainPage';
 
-import DashboardPage from './pages/DashboardPage';
+import DashboardPage from './features/dashboard/pages/DashboardPage';
 import DiaryCreatePage from './features/diary/pages/DiaryCreatePage'; 
 import ProtectedRoute from './components/ProtectedRoute';
 import MainLayout from './layouts/MainLayout';
