@@ -12,7 +12,7 @@ function DashboardCalendar() {
         onClickDay={() => {}}
         calendarType="gregory"
         locale="ko-KR"
-        tileDisabled={() => true}
+        formatDay={(locale, date) => date.getDate()}
       />
     </div>
   );
