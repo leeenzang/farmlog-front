@@ -1,15 +1,17 @@
 /* 전체 사이드바 고정 */
 .sidebar {
-    width: 240px;
-    height: 100vh;
-    background-color: #ffffff;
-    border-right: 1px solid #ddd;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px 5px 15px 5px;
-    box-sizing: border-box;
-  }
+  position: fixed;
+  width: 240px;
+  height: 100vh;
+  background-color: #ffffff;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 5px 15px 5px;
+  box-sizing: border-box;
+  z-index: 1000;
+}
 
 /* 상단 로고 + 텍스트 */
 .sidebar-header {
@@ -36,24 +38,37 @@
     gap: 5px;
   }
 
-  .menu button {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: none;
-    border: none;
-    font-size: 15px;
-    padding: 10px;
-    text-align: left;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.2s;
-  }
+.menu button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  font-size: 17px;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+  font-family: 'GowunBatang', serif;
+  font-weight: 500;
+}
 
   .menu button:hover {
     background-color: #e6f0e6;
   }
-  
+
+
+/* 메뉴 아이콘 이미지 크기 조절 */
+.menu img {
+  width: 25px;   /* 👉 메뉴 아이콘 크기 줄이기 */
+  height: 25px;
+  margin-right: 5px; /* 텍스트랑 간격 주기 */
+  vertical-align: middle;
+}
+
+
+
   /* 하단 로그아웃 */
   .logout {
     padding-top: 20px;
