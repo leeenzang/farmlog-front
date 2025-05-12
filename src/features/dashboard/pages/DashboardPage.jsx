@@ -58,8 +58,8 @@ useEffect(() => {
         console.log('📅 재작년 요청 날짜:', toDateStr(twoYearsAgo));
         console.log('📓 작년 응답:', last);
         console.log('📓 재작년 응답:', twoYears);
-        setLastYearDiary(last[0]);       // API는 리스트로 옴
-        setTwoYearsAgoDiary(twoYears[0]);
+        setLastYearDiary(last.results?.[0] || null);
+        setTwoYearsAgoDiary(twoYears.results?.[0] || null);
       } catch (err) {
         console.error('과거 일기 불러오기 실패:', err);
       }

@@ -4,6 +4,7 @@ import DiaryViewer from '../components/DiaryViewer';
 import PageHeader from '../../../components/PageHeader';
 import axios from '../../../api/axios';
 import { useNavigate } from 'react-router-dom';
+
 function DiaryListPage() {
   const [activeTab, setActiveTab] = useState('latest'); // 'latest' | 'date' | 'keyword'
   const [dateRange, setDateRange] = useState({ start: '', end: '' });
@@ -14,13 +15,17 @@ function DiaryListPage() {
     { label: '키워드', value: 'keyword' }
   ];
   const [entries, setEntries] = useState([]);
+  const [pagination, setPagination] = useState({
+    currentPage: 1,
+    totalPages: 1,
+  });
 
+  
   const handleSearchKeyword = async () => {
     try {
       const res = await axios.get('/diary/search/', {
         params: { keyword },
       });
-      console.log('🔍 백에서 받은 검색 결과:', res.data); // ✅ 이 줄 추가!!
       setEntries(res.data); // 검색된 결과를 entries에 넣기
     } catch (err) {
       console.error('❌ 키워드 검색 실패:', err);

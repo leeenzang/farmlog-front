@@ -1,0 +1,21 @@
+.diary-viewer {
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+  }
+
+/* 페이지네이션 전체 박스 */
+.pagination {
+    margin-top: auto; /* 상단 여백 최대 확보 */
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  /* 숫자 버튼 묶음 */
+  .page-numbers {
+    display: flex;
+    gap: 0.5rem;
+  }
