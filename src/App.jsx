@@ -11,7 +11,7 @@ import MainLayout from './layouts/MainLayout';
 import DiaryListPage from './features/diary/pages/DiaryListPage';
 import DiaryDetail from './features/diary/pages/DiaryDetail';
 import ExportPage from './pages/ExportPage';
-
+import UserProfilePage from './features/auth/pages/UserProfilePage';
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +28,7 @@ function App() {
           <Route path="/diary" element={<DiaryListPage />} />
           <Route path="/diary/search/:id" element={<DiaryDetail />} /> 
           <Route path="/export" element={<ExportPage />} />
+          <Route path="/user" element={<UserProfilePage />} />
         </Route>
       </Routes>
     </BrowserRouter>

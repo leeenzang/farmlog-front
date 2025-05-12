@@ -28,3 +28,23 @@ export const logout = async () => {
     );
     return res.data;
   };
+
+// 사용자 정보 조회
+export const fetchUserInfo = async () => {
+  const res = await axios.get('/users/me/', {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+    },
+  });
+  return res.data; // 👉 { username: 'user1', nickname: '은진햄' }
+};
+
+// 사용자 정보 수정
+export const updateUserInfo = async (formData) => {
+  const res = await axios.patch('/users/me/', formData, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+    },
+  });
+  return res.data;
+};
