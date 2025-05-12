@@ -1,12 +1,23 @@
-import '../pages/DashboardPage.css'; // CSS 파일 import
+import './WeatherCardContainer.css';
+
 function WeatherCardContainer({ title, date, children }) {
-    return (
-      <div className="weather-card">
-        <h4 className="weather-title">{title}의 날씨</h4>
+  return (
+    <div className="weather-card">
+      {/* ✅ 위쪽 전체 묶음 */}
+      <div className="weather-top">
+        <h4 className="weather-title">
+          <span className="weather-highlight">{title}</span>의 날씨
+        </h4>
         <div className="weather-date">{date}</div>
-        <div className="weather-content">{children}</div>
+        {children.top}
       </div>
-    );
-  }
-  
-  export default WeatherCardContainer;
+
+      {/* ✅ 하단 고정 */}
+      <div className="weather-meta">
+        {children.meta}
+      </div>
+    </div>
+  );
+}
+
+export default WeatherCardContainer;

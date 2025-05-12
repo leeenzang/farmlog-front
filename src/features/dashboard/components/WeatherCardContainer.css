@@ -1,0 +1,94 @@
+/* ─────────────── 📦 전체 날씨 카드 레이아웃 ─────────────── */
+.weather-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 1.2rem;
+  min-width: 230px;
+  text-align: center;
+
+  /* 레이아웃 정렬 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  /* 높이 제한 (콘텐츠 넘침 방지) */
+  min-height: 300px;
+  overflow: hidden; /* ✅ 카드 밖으로 안 나가게 */
+}
+
+/* ─────────────── 🟢 상단 제목 & 날짜 ─────────────── */
+.weather-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #000;
+  margin: 0;
+}
+
+.weather-highlight {
+  color: #6aa15d; /* 강조 초록색 */
+}
+
+.weather-date {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 0.25rem;
+}
+
+/* ─────────────── 🌤️ 아이콘 + 온도 묶는 영역 ─────────────── */
+.weather-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 180px; /* 위: 아이콘/온도 / 아래: 상태/습도 */
+  margin-top: 1rem;
+}
+
+.weather-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.temperature {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+/* ─────────────── 📊 상태 / 습도 등 하단 정보 ─────────────── */
+.weather-meta {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.8rem;
+}
+
+.weather-meta > div {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  width: 100px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.label {
+  color: #555;
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.weather-meta .value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+
+  /* ✅ 혹시 다른 CSS가 테두리 넣었을 경우 대비 */
+  border: none;
+  background: none;
+  padding: 0;
+  white-space: nowrap; /* 줄바꿈 방지 */
+}
