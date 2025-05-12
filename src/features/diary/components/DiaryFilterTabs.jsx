@@ -7,6 +7,7 @@ function DiaryFilterTabs({
   setDateRange,
   keyword,
   setKeyword,
+  onSearchKeyword,
 }) {
   return (
     <div className="filter-ui">
@@ -42,6 +43,7 @@ function DiaryFilterTabs({
           className="keyword-filter-form"
           onSubmit={(e) => {
             e.preventDefault(); 
+            onSearchKeyword();
           }}
         >
           <input
