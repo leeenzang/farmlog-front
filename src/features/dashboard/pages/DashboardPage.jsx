@@ -84,20 +84,19 @@ useEffect(() => {
           <DashboardCalendar />
           <TodayWeatherCard weather={todayWeather} />
           <TomorrowWeatherCard weather={tomorrowWeather} />
+
+          <div className="dashboard-links-inline">
+            <LinkCard title="농사로" url="https://www.nongsaro.go.kr/portal/portalMain.ps?menuId=PS00001" />
+            <LinkCard title="농업기술진흥원" url="https://www.koat.or.kr/main2.do" />
+            <LinkCard title="농업ON" url="https://www.agrion.kr/" />
+            <LinkCard title="농업교육포털" url="https://agriedu.net/" />
+          </div>
         </div>
 
         {/* 🟨 중단 섹션: 작년/재작년 일기 */}
         <div className="dashboard-middle">
           <OldDiaryCard title="작년 오늘" diary={lastYearDiary} />
           <OldDiaryCard title="재작년 오늘" diary={twoYearsAgoDiary} />
-        </div>
-
-        {/* 🟦 하단 섹션: 농사로 */}
-        <div className="dashboard-bottom">
-          <LinkCard title="농사로" url="https://www.nongsaro.go.kr/portal/portalMain.ps?menuId=PS00001" />
-          <LinkCard title="농업기술진흥원" url="https://www.koat.or.kr/main2.do" />
-          <LinkCard title="농업ON" url="https://www.agrion.kr/" />
-          <LinkCard title="농업교육포털" url="https://agriedu.net/" />
         </div>
       </div>
     </>

@@ -4,15 +4,13 @@
   gap: 2rem;
 }
 
-.dashboard-top,
-.dashboard-middle {
+.dashboard-top{
   display: flex;
   gap: 1rem;
 }
 
-.dashboard-bottom {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.dashboard-middle {
+  display: flex;
   gap: 1rem;
 }
 
@@ -30,60 +28,10 @@
 
 
 
-/* 날씨 이미지 */
-.weather-card {
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  padding: 1.2rem;
-  width: 200px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.weather-title {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #5C8A41;
-  margin: 0;
-}
-
-.weather-date {
-  font-size: 0.8rem;
-  color: #888;
-}
-
-.weather-content {
-  margin-top: 0.5rem;
-}
-
-
-
-/* 오늘 날씨 카드 */
-.weather-meta {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  font-size: 0.85rem;
-  margin-top: 0.5rem;
-}
-
-.weather-meta .label {
-  color: #888;
-  font-size: 0.75rem;
-}
-
-.weather-meta .value {
-  border: 1px solid #ddd;
-  padding: 0.25rem 0.6rem;
-  border-radius: 6px;
-  font-weight: 500;
-}
 
 
 /* 달력 */
+
 .calendar-wrapper {
   background: white;
   border-radius: 12px;
@@ -98,6 +46,16 @@
 
 
 /* 링크카드 */
+.dashboard-links-inline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  /* 공간 최소만 차지하게 함 */
+  flex-shrink: 0;
+  width: auto;
+}
+
 .link-card {
   background: #f9f9f9;
   border-radius: 12px;
@@ -106,7 +64,7 @@
   color: #333;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   transition: all 0.2s ease;
-  width: 240px;
+  width: 180px;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
