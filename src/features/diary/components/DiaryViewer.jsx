@@ -1,4 +1,5 @@
 // 현재 어떤 탭이 활성화됐는지에 따라 데이터 요청하는 컨트롤러
+const BASE_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
 import { useEffect, useState } from 'react';
 import DiaryTable from './DiaryTable';
@@ -24,7 +25,7 @@ function DiaryViewer({ filterType, dateRange, keyword, entries: externalEntries 
     if (filterType === 'keyword') return; // 키워드면 여기선 무시
   
     const fetchEntries = async () => {
-      let url = `http://localhost:8000/diary/search/?page=${page}`;
+      let url = `${BASE_URL}/diary/search/?page=${page}`;
       if (filterType === 'latest') {
         url += '&ordering=-created_at';
       }
