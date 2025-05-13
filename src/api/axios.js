@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'http://localhost:8000',
+    baseURL: import.meta.env.VITE_REACT_APP_API_URL,
 });
 
 // 요청 보내기 전에 토큰 붙이기 (인증 필요한 URL에만!)
