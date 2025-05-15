@@ -86,3 +86,39 @@
     padding: 8px 0;
     width: 100%;
   }
+
+
+
+/* 햄버거 메뉴 - 기본 안보임 */
+.hamburger {
+  display: none;
+}
+
+/* 모바일용 스타일 */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: 1000;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    font-size: 2rem;
+    z-index: 1101;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}

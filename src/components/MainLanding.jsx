@@ -5,7 +5,7 @@ import mainImage from '../assets/main.png'; // 👈 요거 추가!
 
 function MainLayout() {
   return (
-    <div className="main-layout">
+    <div className="main-landing">
       <div className="main-left">
         <div className='logo-title'>
           <img src={logo} alt="농사일기 로고" className="main-logo" />

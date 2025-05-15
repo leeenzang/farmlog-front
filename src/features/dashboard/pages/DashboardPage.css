@@ -84,3 +84,40 @@
   font-size: 0.8rem;
   color: #888;
 }
+
+
+
+
+@media (max-width: 768px) {
+  .dashboard-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dashboard-middle {
+    flex-direction: column;
+  }
+
+  .calendar-wrapper {
+    width: 100%;
+    max-width: unset;
+  }
+
+  .dashboard-links-inline {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .link-card {
+    width: calc(50% - 0.5rem); /* 2개씩 배치되게 */
+  }
+
+  /* 너무 작아지면 1개씩 */
+  @media (max-width: 480px) {
+    .link-card {
+      width: 100%;
+    }
+  }
+}

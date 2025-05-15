@@ -1,12 +1,18 @@
 .main-layout {
-    display: flex;             /* ❗ 사이드바랑 본문 나란히 */
-    height: 100vh;             /* 전체 높이 맞춰주기 */
-  }
-  
-  
+  display: flex;
+}
+
+.main-content {
+  margin-left: 240px;
+  flex: 1;
+  padding: 22px 40px 40px 40px;
+  background-color: #f4f5f7;
+}
+
+/* 📱 모바일에선 margin 없애야 sidebar 접었을 때 흰 공간 안 생김! */
+@media (max-width: 768px) {
   .main-content {
-    margin-left: 240px;
-    flex: 1;                   /* ❗ 나머지 전부 차지하게 하기 */
-    padding: 22px 40px 40px 40px;             /* 안쪽 여백 */
-    background-color: #f4f5f7; /* 배경 깔아서 사이드바와 구분 */
+    margin-left: 0;
+    padding: 16px; /* 모바일용 여백 조금 줄이기 추천 */
   }
+}

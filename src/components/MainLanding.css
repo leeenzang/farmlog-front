@@ -62,10 +62,14 @@ p {
 
 /* 모바일 환경 */
 @media (max-width: 768px) {
-  .main-layout {
+  .main-landing {
+    display: flex;
     flex-direction: column-reverse;
     height: auto;
     padding: 20px;
+    height: 100vh;
+    background-color: #ffffff;
+
   }
 
   .main-left, .main-right {
