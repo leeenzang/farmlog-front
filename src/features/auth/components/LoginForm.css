@@ -68,3 +68,26 @@
     gap: 10px; /* ← 입력칸 사이 간격 여기서 조절 */
     margin-bottom: 20px;
   }
+
+
+@media (max-width: 768px) {
+  .login-form {
+    width: 100vw;
+    height: 100vh;
+    max-width: unset;
+    min-width: unset;
+
+    border-radius: 0;
+    box-shadow: none;
+    padding: 24px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .login-form h2 {
+    font-size: 28px;
+  }
+
+}
