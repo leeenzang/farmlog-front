@@ -1,58 +1,100 @@
 .main-layout {
-    display: flex;
-    height: 100vh;
-    background-color: #ffffff;
+  display: flex;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.main-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 100px;
+  gap: 20px;
+}
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* 로고랑 글씨 사이 여백 */
+}
+.main-logo {
+  width: 50px;
+  height: 50px;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0;
+}
+
+p {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+
+
+.main-right {
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px 20px 0px;
+}
+.main-box img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* 이미지 찌그러지지 않게 */
+}
+
+
+
+
+/* 모바일 환경 */
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column-reverse;
+    height: auto;
+    padding: 20px;
   }
-  
-  .main-left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: 100px;
-    gap: 20px;
-  }
-  .logo-title {
-    display: flex;
+
+  .main-left, .main-right {
+    width: 100%;
     align-items: center;
-    gap: 10px; /* 로고랑 글씨 사이 여백 */
+    text-align: center;
+    padding: 0;
   }
-  .main-logo {
-    width: 50px;
-    height: 50px;
+
+  .main-left {
+    padding-left: 0;
   }
-  
+
+  .logo-title {
+    justify-content: center;
+  }
+
   h1 {
-    font-size: 50px;
-    font-weight: bold;
-    margin: 0;
+    font-size: 36px;
   }
-  
-  p {
-    font-size: 16px;
-    color: #333;
-    margin: 0;
-  }
-  
+
   .button-group {
-    display: flex;
-    gap: 10px;
+    gap: 12px;
     margin-top: 20px;
   }
-  
 
-  
-  .main-right {
-    flex: 1;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 20px 20px 0px;
-  }
   .main-box img {
-    width: 100%;
+    max-width: 300px;
     height: auto;
-    object-fit: contain; /* 이미지 찌그러지지 않게 */
+    margin-bottom: 1.5rem;
   }
+}
