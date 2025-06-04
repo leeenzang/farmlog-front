@@ -16,7 +16,6 @@ function LoginForm() {
       const res = await login(username, password);
       localStorage.setItem('access_token', res.access);
       localStorage.setItem('refresh_token', res.refresh);
-      alert('로그인 성공!');
       navigate('/dashboard');  // 로그인 후 이동할 페이지
     } catch (err) {
       alert('로그인 실패! 아이디나 비밀번호를 확인해주세요.');
