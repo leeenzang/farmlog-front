@@ -19,10 +19,7 @@ function ExportPage() {
         const res = await axios.get('/diary/search/?ordering=-created_at');
         setEntries(res.data);
       } catch (err) {
-        if (err.response?.status === 401) {
-          alert('세션이 만료되었습니다. 다시 로그인해주세요.');
-          navigate('/login'); 
-        }
+        console.error(err);
       }
     };
 
