@@ -11,7 +11,7 @@ export const login = async (username, password) => {
 
 // 회원가입
 export const signup = async (formData) => {
-  const res = await axios.post('/users/register/', formData);
+  const res = await axios.post('/users/', formData);
   return res.data;
 };
 
