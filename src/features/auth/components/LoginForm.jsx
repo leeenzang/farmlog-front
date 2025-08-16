@@ -14,9 +14,13 @@ function LoginForm() {
   const handleLogin = async () => {
     try {
       const res = await login(username, password);
-      localStorage.setItem('access_token', res.access);
-      localStorage.setItem('refresh_token', res.refresh);
-      navigate('/dashboard');  // 로그인 후 이동할 페이지
+  
+      localStorage.setItem('access_token', res.accessToken);
+      localStorage.setItem('refresh_token', res.refreshToken);
+      localStorage.setItem('user_id', res.userId);
+      localStorage.setItem('nickname', res.nickname);
+  
+      navigate('/dashboard');  
     } catch (err) {
       alert('로그인 실패! 아이디나 비밀번호를 확인해주세요.');
       console.error(err);

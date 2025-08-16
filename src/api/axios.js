@@ -12,7 +12,11 @@ instance.interceptors.request.use(
         const token = localStorage.getItem('access_token');
 
         // 이 경로들은 인증 없이도 접근 가능해야 하니까 토큰 안 붙임
-        const nonAuthUrls = ['/users/login/', '/users/', '/api/token/'];
+        const nonAuthUrls = [
+          '/api/auth/login',
+          '/api/auth/register',
+          '/api/auth/logout'
+        ];
         const isAuthRequired = !nonAuthUrls.some(path => config.url.includes(path));
 
         if (token && isAuthRequired) {
