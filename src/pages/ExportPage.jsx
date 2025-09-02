@@ -33,22 +33,25 @@ function ExportPage() {
       alert('날짜를 모두 선택해주세요!');
       return;
     }
-
+  
     try {
-      const res = await axios.get('/diary/export/', {
-        params: {
-          start_date: startDate,
-          end_date: endDate
-        },
+      const res = await axios.get('/api/diaries/export', {
+        params: { startDate, endDate },
         responseType: 'blob',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('access_token')}`
         }
       });
-
-      const today = new Date();
-      const filename = `logs_${today.toISOString().slice(0, 10).replace(/-/g, '')}.xlsx`;
-
+  
+    
+      const disposition = res.headers['content-disposition'];
+      let filename = 'logs.xlsx';
+      if (disposition) {
+        const match = disposition.match(/filename="?(.+)"?/);
+        if (match) filename = match[1];
+      }
+  
+      // 다운로드 트리거
       const url = window.URL.createObjectURL(new Blob([res.data]));
       const link = document.createElement('a');
       link.href = url;
@@ -56,7 +59,6 @@ function ExportPage() {
       document.body.appendChild(link);
       link.click();
       link.remove();
-
     } catch (err) {
       console.error('❌ 다운로드 실패:', err);
       alert('다운로드 실패!');

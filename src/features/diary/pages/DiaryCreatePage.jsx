@@ -1,26 +1,28 @@
-// src/pages/DiaryCreatePage.jsx
+// 📄 src/pages/DiaryCreatePage.jsx
+
 import DiaryForm from '../components/DiaryForm';
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { createDiary } from '../../../api/diary';
+
 function DiaryCreatePage() {
-
   const navigate = useNavigate();
-  useEffect(() => {
-    const fetchEntries = async () => {
-      try {
-        const res = await axios.get('/diary/search/?ordering=-created_at');
-        setEntries(res.data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
 
-    fetchEntries();
-  }, []);
+  const handleSubmit = async (formData) => {
+    console.log('🔥 formData:', formData); // 디버깅용
+    try {
+      await createDiary(formData);
+      alert('작성 완료!');
+      navigate('/diary'); // ✅ 성공 시 목록 페이지로 이동
+    } catch (err) {
+      console.error('❌ 등록 실패:', err.response?.data || err.message);
+      alert('등록에 실패했어요.');
+    }
+  };
 
   return (
     <div className="diary-create-page">
-      <DiaryForm />
+      <h2>📌 일기 작성</h2>
+      <DiaryForm onSubmit={handleSubmit} />
     </div>
   );
 }

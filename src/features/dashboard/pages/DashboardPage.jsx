@@ -8,7 +8,6 @@ import TodayWeatherCard from '../components/TodayWeatherCard';
 import { fetchTomorrowWeather } from '../../../api/weather';
 import TomorrowWeatherCard from '../components/TomorrowWeatherCard';
 
-import { fetchDiaryByDate } from '../../../api/diary';
 import OldDiaryCard from '../components/OldDiaryCard';
 import LinkCard from '../components/LinkCard';
 

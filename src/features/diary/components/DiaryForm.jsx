@@ -9,7 +9,7 @@ const weatherOptions = [
     '서리', '우박', '가뭄', '폭염', '장마'
 ];
 
-function DiaryForm() {
+function DiaryForm({ onSubmit })  {
   const [formData, setFormData] = useState({
     date: '',
     weather: [],
@@ -52,19 +52,12 @@ function DiaryForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('제출된 일기:', formData);
-  
+
     try {
-      await createDiary({
+      // 🔥 props로 넘겨받은 onSubmit 호출
+      await onSubmit({
         ...formData,
         weather: formData.weather.join(','),
-      });
-      alert('작성 완료!');
-  
-      // ✅ 폼 초기화
-      setFormData({
-        date: '',
-        weather: [],
-        content: ''
       });
     } catch (err) {
       console.error('작성 실패:', err.response?.data || err.message);

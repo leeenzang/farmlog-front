@@ -77,7 +77,7 @@ function DiaryModal({ id, onClose }) {
                 <th>양력</th>
                 <td>{diary.date}</td>
                 <th>음력</th>
-                <td>{diary.lunar_date}</td>
+                <td>{diary.lunarDate}</td>
               </tr>
               <tr>
                 <th>날씨</th>
