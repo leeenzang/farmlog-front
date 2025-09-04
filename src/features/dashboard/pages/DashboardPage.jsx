@@ -7,6 +7,7 @@ import { fetchTodayWeather } from '../../../api/weather';
 import TodayWeatherCard from '../components/TodayWeatherCard';
 import { fetchTomorrowWeather } from '../../../api/weather';
 import TomorrowWeatherCard from '../components/TomorrowWeatherCard';
+import { fetchDiaryByExactDate } from '../../../api/diary';
 
 import OldDiaryCard from '../components/OldDiaryCard';
 import LinkCard from '../components/LinkCard';
@@ -34,38 +35,43 @@ useEffect(() => {
 }, []);
 
 
-  useEffect(() => {
-    const today = new Date();
+useEffect(() => {
+  console.log('🧨 useEffect 돌았다!!!!!');
   
-    const toDateStr = (date) => {
-      const offset = date.getTimezoneOffset() * 60000; // 분 → 밀리초
-      return new Date(date.getTime() - offset).toISOString().slice(0, 10);
-    };
-    const lastYear = new Date(today);
-    lastYear.setFullYear(today.getFullYear() - 1);
-  
-    const twoYearsAgo = new Date(today);
-    twoYearsAgo.setFullYear(today.getFullYear() - 2);
-  
-    const fetchOldDiaries = async () => {
-      try {
-        const [last, twoYears] = await Promise.all([
-          fetchDiaryByDate(toDateStr(lastYear)),
-          fetchDiaryByDate(toDateStr(twoYearsAgo)),
-        ]);
-        console.log('📅 작년 요청 날짜:', toDateStr(lastYear));
-        console.log('📅 재작년 요청 날짜:', toDateStr(twoYearsAgo));
-        console.log('📓 작년 응답:', last);
-        console.log('📓 재작년 응답:', twoYears);
-        setLastYearDiary(last.results?.[0] || null);
-        setTwoYearsAgoDiary(twoYears.results?.[0] || null);
-      } catch (err) {
-        console.error('과거 일기 불러오기 실패:', err);
-      }
-    };
-  
-    fetchOldDiaries();
-  }, []);
+  const today = new Date();
+
+  const toDateStr = (date) => {
+    const offset = date.getTimezoneOffset() * 60000;
+    return new Date(date.getTime() - offset).toISOString().slice(0, 10);
+  };
+
+  const lastYear = new Date(today);
+  lastYear.setFullYear(today.getFullYear() - 1);
+
+  const twoYearsAgo = new Date(today);
+  twoYearsAgo.setFullYear(today.getFullYear() - 2);
+
+  const fetchOldDiaries = async () => {
+    console.log('📦 fetchOldDiaries 실행됨!');
+    try {
+      const last = await fetchDiaryByExactDate(toDateStr(lastYear));
+      console.log('🔥 작년 응답:', last);
+      setLastYearDiary(last);
+    } catch (err) {
+      console.error('🚨 작년 일기 조회 실패:', err);
+    }
+
+    try {
+      const twoYears = await fetchDiaryByExactDate(toDateStr(twoYearsAgo));
+      console.log('🔥 재작년 응답:', twoYears);
+      setTwoYearsAgoDiary(twoYears);
+    } catch (err) {
+      console.error('🚨 재작년 일기 조회 실패:', err);
+    }
+  };
+
+  fetchOldDiaries();
+}, []);
 
 
   return (

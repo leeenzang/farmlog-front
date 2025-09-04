@@ -71,3 +71,13 @@ export const deleteDiary = async (id) => {
   });
   return res.data;
 };
+
+export const fetchDiaryByExactDate = async (date) => {
+  const token = localStorage.getItem('access_token');
+  const res = await axios.get(`/api/diaries/date/${date}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+  return res.data;
+};
