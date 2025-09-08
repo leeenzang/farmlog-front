@@ -47,7 +47,7 @@ export const logout = async () => {
 
 // 사용자 정보 조회
 export const fetchUserInfo = async () => {
-  const res = await axios.get('/users/me/', {
+  const res = await axios.get('/api/users/me', {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('access_token')}`,
     },
@@ -57,7 +57,7 @@ export const fetchUserInfo = async () => {
 
 // 사용자 정보 수정
 export const updateUserInfo = async (formData) => {
-  const res = await axios.patch('/users/me/', formData, {
+  const res = await axios.patch('/api/users/me', formData, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('access_token')}`,
     },
