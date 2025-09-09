@@ -27,14 +27,21 @@ function SignupForm() {
       alert('비밀번호가 일치하지 않습니다!');
       return;
     }
-
+  
     try {
       await signup(formData);
       alert('회원가입 성공!');
       navigate('/');
     } catch (err) {
-      console.error('회원가입 실패 응답:', err.response?.data);
-      alert('회원가입 실패! 콘솔 확인!');
+      const errorData = err.response?.data;
+  
+      if (errorData?.message) {
+        alert(errorData.message); 
+      } else {
+        alert('회원가입 실패! 알 수 없는 오류가 발생했습니다.');
+      }
+  
+      console.error('회원가입 실패 응답:', errorData);
     }
   };
 
