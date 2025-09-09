@@ -1,4 +1,4 @@
-// ✅ 수정된 LoginPage.jsx
+// LoginPage.jsx
 import AuthLayout from '../../../layouts/AuthLayout';
 import LoginForm from '../components/LoginForm';
 

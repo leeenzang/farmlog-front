@@ -30,22 +30,34 @@ instance.interceptors.request.use(
   error => Promise.reject(error)
 );
 
+
 // 세션 만료되면
 let alertLock = false;
+
+const nonSessionApis = [
+  '/api/auth/login',
+  '/api/auth/register',
+  '/api/auth/logout',
+];
 
 instance.interceptors.response.use(
   response => response,
   error => {
-    if (error.response?.status === 401) {
+    const requestUrl = new URL(error.config?.url, error.config?.baseURL).pathname;
+
+    const isSessionExpired = error.response?.status === 401
+      && !nonSessionApis.includes(requestUrl);
+
+    if (isSessionExpired) {
       if (!alertLock) {
         alertLock = true;
 
-        alert('로그아웃 되었습니다. 다시 로그인 해주세요!');
+        alert('세션이 만료되었습니다. 다시 로그인해주세요.');
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
 
         setTimeout(() => {
-          alertLock = false; // 혹시 모를 연속 상황 대비용
+          alertLock = false;
         }, 1000);
 
         window.location.href = '/';
