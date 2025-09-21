@@ -27,7 +27,7 @@ function SignupForm() {
       alert('비밀번호가 일치하지 않습니다!');
       return;
     }
-
+  
     try {
       await signup(formData);
       alert('회원가입 성공!');
@@ -40,6 +40,7 @@ function SignupForm() {
       } else {
         alert('회원가입 실패! 알 수 없는 오류 발생');
       }
+
     }
   };
 

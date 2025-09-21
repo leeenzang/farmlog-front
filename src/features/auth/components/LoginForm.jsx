@@ -4,7 +4,7 @@ import InputField from '../../../components/InputField';
 import CheckBox from '../../../components/CheckBox';
 import Button from '../../../components/Button';
 import './LoginForm.css';
-import { login } from '../../../api/users'; // axios 요청 함수
+import { login } from '../../../api/users'; 
 
 function LoginForm() {
   const [username, setUsername] = useState('');
