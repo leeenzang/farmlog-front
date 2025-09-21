@@ -45,17 +45,36 @@ function DiaryViewer({ filterType, dateRange, keyword }) {
       <DiaryTable entries={entries} />
 
       <div className="pagination">
-        <div className="page-numbers">
-          {Array.from({ length: totalPages }, (_, i) => (
+        <Button
+          text="◀"
+          onClick={() => setPage((p) => Math.max(1, p - 1))}
+          disabled={page === 1}
+          variant="text"
+        />
+
+        {Array.from({ length: 10 }, (_, i) => {
+          const startPage = Math.floor((page - 1) / 10) * 10 + 1;
+          const pageNumber = startPage + i;
+
+          if (pageNumber > totalPages) return null; 
+
+          return (
             <Button
-              key={i + 1}
-              text={i + 1}
-              onClick={() => setPage(i + 1)}
-              className={page === i + 1 ? 'active-page' : ''}
+              key={pageNumber}
+              text={pageNumber}
+              onClick={() => setPage(pageNumber)}
+              className={page === pageNumber ? 'active-page' : ''}
               variant="text"
             />
-          ))}
-        </div>
+          );
+        })}
+
+        <Button
+          text="▶"
+          onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+          disabled={page === totalPages}
+          variant="text"
+        />
       </div>
     </div>
   );
