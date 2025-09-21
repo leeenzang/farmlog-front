@@ -11,11 +11,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
   }
   
   /* 숫자 버튼 묶음 */
   .page-numbers {
     display: flex;
     gap: 0.5rem;
+  }
+
+  .arrow-icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 2px; /* 살짝 아래로 내림 */
   }

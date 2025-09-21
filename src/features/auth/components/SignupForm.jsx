@@ -31,17 +31,16 @@ function SignupForm() {
     try {
       await signup(formData);
       alert('회원가입 성공!');
-      navigate('/');
+      navigate('/login');
     } catch (err) {
-      const errorData = err.response?.data;
+      const errorResponse = err.response?.data;
   
-      if (errorData?.message) {
-        alert(errorData.message); 
+      if (errorResponse?.message) {
+        alert(errorResponse.message);
       } else {
-        alert('회원가입 실패! 알 수 없는 오류가 발생했습니다.');
+        alert('회원가입 실패! 알 수 없는 오류 발생');
       }
-  
-      console.error('회원가입 실패 응답:', errorData);
+
     }
   };
 
