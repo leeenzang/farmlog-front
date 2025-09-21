@@ -31,10 +31,15 @@ function SignupForm() {
     try {
       await signup(formData);
       alert('회원가입 성공!');
-      navigate('/');
+      navigate('/login');
     } catch (err) {
-      console.error('회원가입 실패 응답:', err.response?.data);
-      alert('회원가입 실패! 콘솔 확인!');
+      const errorResponse = err.response?.data;
+  
+      if (errorResponse?.message) {
+        alert(errorResponse.message);
+      } else {
+        alert('회원가입 실패! 알 수 없는 오류 발생');
+      }
     }
   };
 
