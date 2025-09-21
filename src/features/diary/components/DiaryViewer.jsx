@@ -5,6 +5,9 @@ import DiaryTable from './DiaryTable';
 import Button from '../../../components/Button';
 import './DiaryViewer.css';
 
+import leftArrow from '../../../assets/larrow.png';
+import rightArrow from '../../../assets/arrow.png';
+
 function DiaryViewer({ filterType, dateRange, keyword }) {
   const [entries, setEntries] = useState([]);
   const [page, setPage] = useState(1); // 프론트는 1-based
@@ -46,11 +49,12 @@ function DiaryViewer({ filterType, dateRange, keyword }) {
 
       <div className="pagination">
         <Button
-          text="◀"
-          onClick={() => setPage((p) => Math.max(1, p - 1))}
-          disabled={page === 1}
-          variant="text"
-        />
+            onClick={() => setPage((p) => Math.max(1, p - 1))}
+            disabled={page === 1}
+            variant="text"
+          >
+            <img src={leftArrow} alt="이전" className="arrow-icon" />
+          </Button>
 
         {Array.from({ length: 10 }, (_, i) => {
           const startPage = Math.floor((page - 1) / 10) * 10 + 1;
@@ -70,11 +74,12 @@ function DiaryViewer({ filterType, dateRange, keyword }) {
         })}
 
         <Button
-          text="▶"
           onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
           disabled={page === totalPages}
           variant="text"
-        />
+        >
+          <img src={rightArrow} alt="다음" className="arrow-icon" />
+        </Button>
       </div>
     </div>
   );

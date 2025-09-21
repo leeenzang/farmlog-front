@@ -14,6 +14,7 @@ import './Button.css';
  */
 function Button({
   text,
+  children,
   to,
   isLink = false,
   onClick,
@@ -27,7 +28,7 @@ function Button({
   if (isLink && to) {
     return (
       <Link to={to} className={classes}>
-        {text}
+        {children || text}
       </Link>
     );
   }
@@ -39,7 +40,7 @@ function Button({
       type={type} // 'submit'이나 'button' 등 지정 가능
       className={classes}
     >
-      {text}
+      {children || text}
     </button>
   );
 }
