@@ -1,5 +1,4 @@
 // 📄 src/features/diary/pages/DiaryListPage.jsx
-
 import { useState } from 'react';
 import DiaryFilterTabs from '../components/DiaryFilterTabs';
 import DiaryViewer from '../components/DiaryViewer';
@@ -8,7 +7,8 @@ import PageHeader from '../../../components/PageHeader';
 function DiaryListPage() {
   const [activeTab, setActiveTab] = useState('latest'); // 'latest' | 'date' | 'keyword'
   const [dateRange, setDateRange] = useState({ start: '', end: '' });
-  const [keyword, setKeyword] = useState('');
+  const [keyword, setKeyword] = useState('');          // 입력 중인 값
+  const [searchKeyword, setSearchKeyword] = useState(''); // 검색 버튼 눌러서 확정된 값
 
   const diaryTabs = [
     { label: '최신순', value: 'latest' },
@@ -31,13 +31,13 @@ function DiaryListPage() {
         setDateRange={setDateRange}
         keyword={keyword}
         setKeyword={setKeyword}
-        onSearchKeyword={() => {}} // 이제 필요 없음, Viewer에서 keyword 직접 사용
+        onSearchKeyword={setSearchKeyword} // 돋보기 누르면 searchKeyword 갱신
       />
 
       <DiaryViewer
         filterType={activeTab}
         dateRange={dateRange}
-        keyword={keyword}
+        keyword={searchKeyword} // 검색 확정된 값만 Viewer로 내려감
       />
     </div>
   );
