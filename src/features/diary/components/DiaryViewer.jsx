@@ -10,14 +10,14 @@ import rightArrow from '../../../assets/arrow.png';
 
 function DiaryViewer({ filterType, dateRange, keyword }) {
   const [entries, setEntries] = useState([]);
-  const [page, setPage] = useState(1); // 프론트는 1-based
+  const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     const fetchEntries = async () => {
       try {
         const params = {
-          page: page - 1, // 스프링은 0-based
+          page: page - 1,
           size: 10,
         };
 
@@ -26,13 +26,12 @@ function DiaryViewer({ filterType, dateRange, keyword }) {
           params.endDate = dateRange.end;
         }
 
+        // props로 받은 keyword (searchKeyword가 내려옴)
         if (filterType === 'keyword' && keyword) {
           params.keyword = keyword;
         }
 
-        // 최신순 정렬은 서버 기본 정렬을 따르거나, 추가적으로 sort param을 넘길 수도 있음
         const res = await axios.get('/api/diaries', { params });
-
         setEntries(res.data.content);
         setTotalPages(res.data.pageInfo.totalPages);
       } catch (err) {
@@ -41,7 +40,7 @@ function DiaryViewer({ filterType, dateRange, keyword }) {
     };
 
     fetchEntries();
-  }, [filterType, dateRange, keyword, page]);
+  }, [filterType, dateRange, keyword, page]); // keyword는 props로 받은 searchKeyword
 
   return (
     <div className="diary-viewer">
@@ -49,18 +48,18 @@ function DiaryViewer({ filterType, dateRange, keyword }) {
 
       <div className="pagination">
         <Button
-            onClick={() => setPage((p) => Math.max(1, p - 1))}
-            disabled={page === 1}
-            variant="text"
-          >
-            <img src={leftArrow} alt="이전" className="arrow-icon" />
-          </Button>
+          onClick={() => setPage((p) => Math.max(1, p - 1))}
+          disabled={page === 1}
+          variant="text"
+        >
+          <img src={leftArrow} alt="이전" className="arrow-icon" />
+        </Button>
 
         {Array.from({ length: 10 }, (_, i) => {
           const startPage = Math.floor((page - 1) / 10) * 10 + 1;
           const pageNumber = startPage + i;
 
-          if (pageNumber > totalPages) return null; 
+          if (pageNumber > totalPages) return null;
 
           return (
             <Button
