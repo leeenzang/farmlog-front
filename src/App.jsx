@@ -12,6 +12,8 @@ import DiaryListPage from './features/diary/pages/DiaryListPage';
 import DiaryDetail from './features/diary/pages/DiaryDetail';
 import ExportPage from './pages/ExportPage';
 import UserProfilePage from './features/auth/pages/UserProfilePage';
+import DiaryDetailByDate from "./features/diary/pages/DiaryDetailByDate";
+
 function App() {
   return (
     <BrowserRouter>
@@ -27,6 +29,7 @@ function App() {
           <Route path="/diary/create" element={<DiaryCreatePage />} /> 
           <Route path="/diary" element={<DiaryListPage />} />
           <Route path="/diary/search/:id" element={<DiaryDetail />} /> 
+          <Route path="/diaries/date/:date" element={<DiaryDetailByDate />} />
           <Route path="/export" element={<ExportPage />} />
           <Route path="/user" element={<UserProfilePage />} />
         </Route>

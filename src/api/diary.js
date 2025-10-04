@@ -95,7 +95,7 @@ export const fetchDiaryDatesOfMonth = async (year, month) => {
 };
 
 // 특정 날짜 + 과거 일기 조회 (오늘/작년/재작년)
-export const fetchDiaryWithPast = async (date) => {
+export const fetchDiaryByDate = async (date) => {
   const token = localStorage.getItem('access_token');
   const res = await axios.get(`/api/diaries/date/${date}`, {
     headers: {

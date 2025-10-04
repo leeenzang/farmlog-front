@@ -1,0 +1,147 @@
+/* ✅ 전체 컨테이너 */
+.diary-detail-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 32px 40px;
+    font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  }
+  
+  /* 제목 */
+  .diary-detail-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 8px;
+  }
+  
+  /* 날짜/날씨/음력 등 정보 */
+  .diary-detail-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 8px 16px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  .diary-detail-meta span {
+    background-color: #f7f9fa;
+    border-radius: 6px;
+    padding: 6px 10px;
+    border: 1px solid #e5e5e5;
+  }
+  
+  /* 본문 */
+  .diary-detail-content {
+    background: #fafafa;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    white-space: pre-line;
+    line-height: 1.6;
+    color: #333;
+    font-size: 1rem;
+    margin-bottom: 28px;
+  }
+  
+  /* 버튼 영역 */
+  .diary-detail-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .diary-detail-actions button {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .diary-detail-actions button:hover {
+    background-color: #f2f2f2;
+  }
+  
+  /* 과거 일기 섹션 */
+  .past-diary-section {
+    margin-top: 16px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #e5e5e5;
+    background-color: #f9fafb;
+  }
+  
+  /* summary 태그로 열고 닫기 */
+  .past-diary-toggle {
+    padding: 12px 16px;
+    background-color: #f6f8fa;
+    border: none;
+    outline: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .past-diary-toggle:hover {
+    background-color: #eef0f2;
+  }
+  
+  /* 내용 */
+  .past-diary-content {
+    padding: 16px 18px;
+    border-top: 1px solid #e5e5e5;
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.6;
+    animation: fadeIn 0.3s ease;
+    white-space: pre-line;
+  }
+  
+  /* 애니메이션 */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 반응형 (모바일 대응) */
+  @media (max-width: 600px) {
+    .diary-detail-container {
+      width: 90%;
+      padding: 24px 20px;
+    }
+  
+    .diary-detail-title {
+      font-size: 1.3rem;
+    }
+  
+    .diary-detail-meta {
+      grid-template-columns: 1fr;
+    }
+  
+    .diary-detail-actions {
+      flex-direction: column;
+      gap: 6px;
+    }
+  
+    .diary-detail-actions button {
+      width: 100%;
+    }
+  }

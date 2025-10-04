@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "./DashboardCalendar.css";
@@ -6,6 +7,7 @@ import { fetchDiaryDatesOfMonth } from "../../../api/diary";
 
 function DashboardCalendar() {
   const today = new Date();
+  const navigate = useNavigate(); 
   const [markedDates, setMarkedDates] = useState([]);
   const [activeMonth, setActiveMonth] = useState(today); // 현재 보고 있는 달
 
@@ -37,6 +39,12 @@ function DashboardCalendar() {
           return view === "month" && hasDiary ? <div className="dot"></div> : null;
         }}
         onActiveStartDateChange={handleMonthChange}
+        onClickDay={(value) => {                     // ✅ 클릭 시 동작 추가
+          const dateStr = value.toISOString().split("T")[0];
+          if (markedDates.includes(dateStr)) {
+            navigate(`/diaries/date/${dateStr}`);    // ✅ 상세 페이지로 이동
+          }
+        }}
       />
     </div>
   );
