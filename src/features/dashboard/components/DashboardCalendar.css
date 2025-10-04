@@ -86,3 +86,12 @@
   .react-calendar__month-view__days__day:nth-child(7n) {
     color: rgb(70, 129, 255);
   }
+
+  .calendar-wrapper .dot {
+    height: 6px;
+    width: 6px;
+    background-color: rgb(167, 167, 167);
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-top: 2px;
+  }
