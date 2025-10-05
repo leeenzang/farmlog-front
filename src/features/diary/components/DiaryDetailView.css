@@ -1,11 +1,11 @@
 .diary-detail-container {
     width: 100%;
-    max-width: 600px;
     margin: 0 auto;
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 6px;
     overflow: hidden;
+    gap: 24px;
   }
   
   /* 제목 한 줄 */
@@ -13,7 +13,6 @@
     background: #f5f5f5;
     padding: 12px 16px;
     font-size: 18px;
-    font-weight: 600;
     border-bottom: 1px solid #ddd;
     height: 60px;
     display: flex;
@@ -80,4 +79,42 @@
     font-size: 15px;
     color: #333;
     margin: 0;
+  }
+
+
+  .diary-title-button {
+    width: 100%;
+    border: none;
+    text-align: left;
+    justify-content: space-between;
+    transition: color 0.2s;
+    cursor: pointer;
+    background: #f5f5f5;
+    padding: 12px 16px;
+    font-size: 18px;
+    font-family: inherit;
+    border-bottom: 1px solid #ddd;
+    height: 60px;
+    display: flex;
+    align-items: center; 
+    padding-left: 30px;
+  }
+
+
+  .arrow {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+    background-image: url("../../../assets/openb.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent; /* ✅ 여기가 핵심 */
+    border: none;
+    transition: transform 0.25s ease;
+  }
+  
+  .arrow.open {
+    transform: rotate(180deg); /* 펼쳐졌을 때 회전 */
   }

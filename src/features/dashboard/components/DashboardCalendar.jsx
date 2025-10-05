@@ -39,10 +39,13 @@ function DashboardCalendar() {
           return view === "month" && hasDiary ? <div className="dot"></div> : null;
         }}
         onActiveStartDateChange={handleMonthChange}
-        onClickDay={(value) => {                     // ✅ 클릭 시 동작 추가
-          const dateStr = value.toISOString().split("T")[0];
+        onClickDay={(value) => {
+          // ✅ KST 변환 (UTC 밀림 방지)
+          const kst = new Date(value.getTime() - value.getTimezoneOffset() * 60000);
+          const dateStr = kst.toISOString().split("T")[0];
+        
           if (markedDates.includes(dateStr)) {
-            navigate(`/diaries/date/${dateStr}`);    // ✅ 상세 페이지로 이동
+            navigate(`/diaries/date/${dateStr}`);
           }
         }}
       />
