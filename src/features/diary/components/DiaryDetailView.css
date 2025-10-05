@@ -1,0 +1,120 @@
+.diary-detail-container {
+    width: 100%;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    gap: 24px;
+  }
+  
+  /* 제목 한 줄 */
+  .diary-title {
+    background: #f5f5f5;
+    padding: 12px 16px;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+    height: 60px;
+    display: flex;
+    align-items: center; 
+    padding-left: 30px;
+  }
+  
+  /* 줄 구조 (양력/음력, 날씨 등) */
+  .diary-row {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .diary-row .label {
+    background: #f3f3f3; /* 🔹회색 박스 */
+    border-right: 1px solid #ddd;
+    padding: 10px 12px;
+    font-weight: 700;
+    width: 80px;
+    text-align: center;
+    margin: 0;
+    font-size: 15px;
+  }
+  
+  .diary-row .value {
+    flex: 1;
+    padding: 10px 12px;
+  }
+
+  
+  /* 버튼 영역 */
+  .diary-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 30px 30px;
+  }
+  
+  .diary-actions button {
+    border: 1px solid #999;
+    background: #fff;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .diary-actions button:hover {
+    background: #f2f2f2;
+  }
+
+  .diary-content {
+    display: grid;
+    padding: 0 30px;
+    border-top: none;
+    grid-template-rows: repeat(6, 1fr); 
+    margin-top: 10px;
+
+  }
+  
+  .diary-content p {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+    font-size: 15px;
+    color: #333;
+    margin: 0;
+  }
+
+
+  .diary-title-button {
+    width: 100%;
+    border: none;
+    text-align: left;
+    justify-content: space-between;
+    transition: color 0.2s;
+    cursor: pointer;
+    background: #f5f5f5;
+    padding: 12px 16px;
+    font-size: 18px;
+    font-family: inherit;
+    border-bottom: 1px solid #ddd;
+    height: 60px;
+    display: flex;
+    align-items: center; 
+    padding-left: 30px;
+  }
+
+
+  .arrow {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+    background-image: url("../../../assets/openb.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent; /* ✅ 여기가 핵심 */
+    border: none;
+    transition: transform 0.25s ease;
+  }
+  
+  .arrow.open {
+    transform: rotate(180deg); /* 펼쳐졌을 때 회전 */
+  }

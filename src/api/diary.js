@@ -81,3 +81,27 @@ export const fetchDiaryByExactDate = async (date) => {
   });
   return res.data;
 };
+
+// 특정 월의 일기 날짜 목록 조회 (캘린더 점 찍기용)
+export const fetchDiaryDatesOfMonth = async (year, month) => {
+  const token = localStorage.getItem('access_token');
+  const res = await axios.get('/api/diaries/calendar', {
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+    params: { year, month } // 쿼리 파라미터로 전송
+  });
+  return res.data; // { dates: ["2025-10-01", "2025-10-04", ...] }
+};
+
+// 특정 날짜 + 과거 일기 조회 (오늘/작년/재작년)
+export const fetchDiaryByDate = async (date) => {
+  const token = localStorage.getItem('access_token');
+  const res = await axios.get(`/api/diaries/date/${date}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+    params: { include_past: true } 
+  });
+  return res.data; 
+};
